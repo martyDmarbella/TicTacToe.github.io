@@ -79,29 +79,67 @@ function checkGameOver() {
   // Check rows
   for (let i = 0; i < 9; i += 3) {
     if (board[i] !== '' && board[i] === board[i + 1] && board[i] === board[i + 2]) {
-      return true;
+      if (board[i] === 'X') {
+        alert('Player wins!');
+        playerScore++;
+        document.getElementById('playerScore').innerText = playerScore.toString();
+      } else {
+        alert('Computer wins!');
+        computerScore++;
+        document.getElementById('computerScore').innerText = computerScore.toString();
+      }
+      return board[i];
     }
   }
   // Check columns
   for (let i = 0; i < 3; i++) {
     if (board[i] !== '' && board[i] === board[i + 3] && board[i] === board[i + 6]) {
-      return true;
+      if (board[i] === 'X') {
+        alert('Player wins!');
+        playerScore++;
+        document.getElementById('playerScore').innerText = playerScore.toString();
+      } else {
+        alert('Computer wins!');
+        computerScore++;
+        document.getElementById('computerScore').innerText = computerScore.toString();
+      }
+      return board[i];
     }
   }
   // Check diagonals
   if (board[0] !== '' && board[0] === board[4] && board[0] === board[8]) {
-    return true;
+    if (board[0] === 'X') {
+      alert('Player wins!');
+      playerScore++;
+      document.getElementById('playerScore').innerText = playerScore.toString();
+    } else {
+      alert('Computer wins!');
+      computerScore++;
+      document.getElementById('computerScore').innerText = computerScore.toString();
+    }
+    return board[0];
   }
   if (board[2] !== '' && board[2] === board[4] && board[2] === board[6]) {
-    return true;
+    if (board[2] === 'X') {
+      alert('Player wins!');
+      playerScore++;
+      document.getElementById('playerScore').innerText = playerScore.toString();
+    } else {
+      alert('Computer wins!');
+      computerScore++;
+      document.getElementById('computerScore').innerText = computerScore.toString();
+    }
+    return board[2];
   }
   // Check if the board is full
   if (!board.includes('')) {
-    return false;
+    alert('Tie game!');
+    return 'tie';
   }
   // If none of the above conditions are met, the game is not over
   return false;
 }
+
 
 // Function to handle the player's move
 function playerMove(square) {
@@ -110,22 +148,30 @@ function playerMove(square) {
   }
   board[square] = currentPlayer;
   render();
-  if (checkGameOver()) {
+  const result = checkGameOver();
+  if (result) {
     gameOver = true;
-    playerScore++;
-    document.getElementById('playerScore').innerText = playerScore.toString();
+    if (result === 'tie') {
+      alert('Tie game!');
+    } else if (result === 'X') {
+      playerScore++;
+      document.getElementById('playerScore').innerText = playerScore.toString();
+    } else if (result === 'O') {
+      computerScore++;
+      document.getElementById('computerScore').innerText = computerScore.toString();
+    }
     return;
   }
   currentPlayer = 'O';
   setTimeout(computerMove, 200);
 }
 
-// Function to handle the computer's move
 function computerMove() {
   if (gameOver) {
     return;
   }
-// Choose a random empty square
+  currentPlayer = 'O';
+  // Choose a random empty square
   let square;
   do {
     square = Math.floor(Math.random() * 9);
@@ -141,6 +187,7 @@ function computerMove() {
   currentPlayer = 'X';
 }
 
+
 // Function to reset the game
 function resetGame() {
   board = ['', '', '', '', '', '', '', '', ''];
@@ -148,14 +195,6 @@ function resetGame() {
   gameOver = false;
   render();
 }
-
-// Add event listeners
-for (let i = 0; i < 9; i++) {
-  document.getElementById(i.toString()).addEventListener('click', function () {
-    playerMove(i);
-  });
-}
-document.getElementById('reset').addEventListener('click', resetGame);
 
 // Function to reset the score
 function resetScore() {
