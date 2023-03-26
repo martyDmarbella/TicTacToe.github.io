@@ -106,6 +106,7 @@ body {
 .score {
   font-family: 'Alkatra', cursive;
   font-size: 25px;
+  color: rgb(124, 5, 124);
 }
 
 .parag-score {
