@@ -1,6 +1,6 @@
 // Define the sound effect
 const clickSound = new Audio();
-clickSound.src = './img&audio/click.mp3';
+clickSound.src = './resources/click.mp3';
 clickSound.load();
 
 // Add a click event listener to each square element
@@ -81,7 +81,7 @@ function checkGameOver() {
     if (board[i] !== '' && board[i] === board[i + 1] && board[i] === board[i + 2]) {
       if (board[i] === 'X') {
         alert('Player wins!');
-        playerScore = 1;
+        playerScore += 1;
         document.getElementById('playerScore').innerText = playerScore.toString();
       } else {
         alert('Computer wins!');
@@ -110,7 +110,7 @@ function checkGameOver() {
   if (board[0] !== '' && board[0] === board[4] && board[0] === board[8]) {
     if (board[0] === 'X') {
       alert('Player wins!');
-      playerScore ++;
+      playerScore +=1;
       document.getElementById('playerScore').innerText = playerScore.toString();
     } else {
       alert('Computer wins!');
@@ -122,7 +122,7 @@ function checkGameOver() {
   if (board[2] !== '' && board[2] === board[4] && board[2] === board[6]) {
     if (board[2] === 'X') {
       alert('Player wins!');
-      playerScore = 1;
+      playerScore +=1;
       document.getElementById('playerScore').innerText = playerScore.toString();
     } else {
       alert('Computer wins!');
