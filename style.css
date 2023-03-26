@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: myFirstFont;
-  src: url(Brushot-Bold.otf);
+  src: url(./resources/Brushot-Bold.otf);
   font-weight: bold;
 }
 
