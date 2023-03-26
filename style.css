@@ -21,7 +21,7 @@
   }
 }
 
-/* body */
+
 body {
   text-align: center;
   background-image: url('./resources/bg.jpg');
@@ -111,7 +111,6 @@ body {
 
 .parag-score {
   color: rgb(124, 5, 124);
-  /* font-weight: bold; */
   padding-top: 20px;
   font-family: 'Alkatra', cursive;
 }
