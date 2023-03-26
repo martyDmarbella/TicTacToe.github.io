@@ -17,7 +17,6 @@ for (let i = 0; i < 9; i++) {
 }
 
 // To add animation in css
-
 for (let i = 0; i < 9; i++) {
   const square = document.getElementById(i.toString());
   square.addEventListener('click', function () {
@@ -91,6 +90,7 @@ function checkGameOver() {
       return board[i];
     }
   }
+
   // Check columns
   for (let i = 0; i < 3; i++) {
     if (board[i] !== '' && board[i] === board[i + 3] && board[i] === board[i + 6]) {
@@ -106,6 +106,7 @@ function checkGameOver() {
       return board[i];
     }
   }
+
   // Check diagonals
   if (board[0] !== '' && board[0] === board[4] && board[0] === board[8]) {
     if (board[0] === 'X') {
@@ -131,11 +132,13 @@ function checkGameOver() {
     }
     return board[2];
   }
+
   // Check if the board is full
   if (!board.includes('')) {
     alert('Tie game!');
     return 'tie';
   }
+
   // If none of the above conditions are met, the game is not over
   return false;
 }
