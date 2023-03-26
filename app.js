@@ -6,7 +6,7 @@ clickSound.load();
 // Add a click event listener to each square element
 for (let i = 0; i < 9; i++) {
   const square = document.getElementById(i.toString());
-  square.addEventListener('click', function () {
+  square.addEventListener('click.mp3', function () {
     // Play the sound effect
     clickSound.currentTime = 0;
     clickSound.play();
