@@ -1,6 +1,6 @@
 // Define the sound effect
 const clickSound = new Audio();
-clickSound.src = './resources/click.mp3';
+clickSound.src = './img&audio/click.mp3';
 clickSound.load();
 
 // Add a click event listener to each square element
@@ -17,6 +17,7 @@ for (let i = 0; i < 9; i++) {
 }
 
 // To add animation in css
+
 for (let i = 0; i < 9; i++) {
   const square = document.getElementById(i.toString());
   square.addEventListener('click', function () {
@@ -90,7 +91,6 @@ function checkGameOver() {
       return board[i];
     }
   }
-
   // Check columns
   for (let i = 0; i < 3; i++) {
     if (board[i] !== '' && board[i] === board[i + 3] && board[i] === board[i + 6]) {
@@ -106,16 +106,15 @@ function checkGameOver() {
       return board[i];
     }
   }
-
   // Check diagonals
   if (board[0] !== '' && board[0] === board[4] && board[0] === board[8]) {
     if (board[0] === 'X') {
       alert('Player wins!');
-      playerScore++;
+      playerscore = 1;
       document.getElementById('playerScore').innerText = playerScore.toString();
     } else {
       alert('Computer wins!');
-      computerScore++;
+      computerScore = 1;
       document.getElementById('computerScore').innerText = computerScore.toString();
     }
     return board[0];
@@ -123,26 +122,23 @@ function checkGameOver() {
   if (board[2] !== '' && board[2] === board[4] && board[2] === board[6]) {
     if (board[2] === 'X') {
       alert('Player wins!');
-      playerScore++;
+      playerScore = 1;
       document.getElementById('playerScore').innerText = playerScore.toString();
     } else {
       alert('Computer wins!');
-      computerScore++;
+      computerScore = 1;
       document.getElementById('computerScore').innerText = computerScore.toString();
     }
     return board[2];
   }
-
   // Check if the board is full
   if (!board.includes('')) {
     alert('Tie game!');
     return 'tie';
   }
-
   // If none of the above conditions are met, the game is not over
   return false;
 }
-
 
 // Function to handle the player's move
 function playerMove(square) {
@@ -156,11 +152,9 @@ function playerMove(square) {
     gameOver = true;
     if (result === 'tie') {
       alert('Tie game!');
-    } else if (result === 'X') {
-      playerScore++;
+    } else if (result === 'X') { 
       document.getElementById('playerScore').innerText = playerScore.toString();
     } else if (result === 'O') {
-      computerScore++;
       document.getElementById('computerScore').innerText = computerScore.toString();
     }
     return;
@@ -183,7 +177,6 @@ function computerMove() {
   render();
   if (checkGameOver()) {
     gameOver = true;
-    computerScore++;
     document.getElementById('computerScore').innerText = computerScore.toString();
     return;
   }
