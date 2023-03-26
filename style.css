@@ -58,12 +58,12 @@ body {
 }
 
 .x {
-  color: red;
+  color: rgb(255, 12, 174);
   font-family: myFirstFont;
 }
 
 .o {
-  color: blue;
+  color: rgb(7, 81, 141);
   font-family: myFirstFont;
 }
 
