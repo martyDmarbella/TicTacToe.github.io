@@ -53,13 +53,6 @@ audioToggle.addEventListener("click", function () {
   }
 });
 
-// Initialize variables
-let board = ['', '', '', '', '', '', '', '', ''];
-let playerScore = 0;
-let computerScore = 0;
-let currentPlayer = 'X';
-let gameOver = false;
-
 // Function so I can style x and o in css
 function render() {
   for (let i = 0; i < board.length; i++) {
@@ -73,6 +66,13 @@ function render() {
     }
   }
 }
+
+// Initialize variables
+let board = ['', '', '', '', '', '', '', '', ''];
+let playerScore = 0;
+let computerScore = 0;
+let currentPlayer = 'X';
+let gameOver = false;
 
 // Function to check if the game is over
 function checkGameOver() {
@@ -91,6 +91,7 @@ function checkGameOver() {
       return board[i];
     }
   }
+
   // Check columns
   for (let i = 0; i < 3; i++) {
     if (board[i] !== '' && board[i] === board[i + 3] && board[i] === board[i + 6]) {
@@ -106,6 +107,7 @@ function checkGameOver() {
       return board[i];
     }
   }
+
   // Check diagonals
   if (board[0] !== '' && board[0] === board[4] && board[0] === board[8]) {
     if (board[0] === 'X') {
@@ -131,6 +133,7 @@ function checkGameOver() {
     }
     return board[2];
   }
+
   // Check if the board is full
   if (!board.includes('')) {
     alert('Tie game!');
@@ -182,7 +185,6 @@ function computerMove() {
   }
   currentPlayer = 'X';
 }
-
 
 // Function to reset the game
 function resetGame() {
