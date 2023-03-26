@@ -81,11 +81,11 @@ function checkGameOver() {
     if (board[i] !== '' && board[i] === board[i + 1] && board[i] === board[i + 2]) {
       if (board[i] === 'X') {
         alert('Player wins!');
-        playerScore++;
+        playerScore = 1;
         document.getElementById('playerScore').innerText = playerScore.toString();
       } else {
         alert('Computer wins!');
-        computerScore++;
+        computerScore = 1;
         document.getElementById('computerScore').innerText = computerScore.toString();
       }
       return board[i];
@@ -96,11 +96,11 @@ function checkGameOver() {
     if (board[i] !== '' && board[i] === board[i + 3] && board[i] === board[i + 6]) {
       if (board[i] === 'X') {
         alert('Player wins!');
-        playerScore++;
+        playerScore += 1;
         document.getElementById('playerScore').innerText = playerScore.toString();
       } else {
         alert('Computer wins!');
-        computerScore++;
+        computerScore = 1;
         document.getElementById('computerScore').innerText = computerScore.toString();
       }
       return board[i];
@@ -110,7 +110,7 @@ function checkGameOver() {
   if (board[0] !== '' && board[0] === board[4] && board[0] === board[8]) {
     if (board[0] === 'X') {
       alert('Player wins!');
-      playerscore = 1;
+      playerScore ++;
       document.getElementById('playerScore').innerText = playerScore.toString();
     } else {
       alert('Computer wins!');
