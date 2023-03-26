@@ -85,7 +85,7 @@ function checkGameOver() {
         document.getElementById('playerScore').innerText = playerScore.toString();
       } else {
         alert('Computer wins!');
-        computerScore = 1;
+        computerScore += 1;
         document.getElementById('computerScore').innerText = computerScore.toString();
       }
       return board[i];
@@ -100,7 +100,7 @@ function checkGameOver() {
         document.getElementById('playerScore').innerText = playerScore.toString();
       } else {
         alert('Computer wins!');
-        computerScore = 1;
+        computerScore += 1;
         document.getElementById('computerScore').innerText = computerScore.toString();
       }
       return board[i];
@@ -114,7 +114,7 @@ function checkGameOver() {
       document.getElementById('playerScore').innerText = playerScore.toString();
     } else {
       alert('Computer wins!');
-      computerScore = 1;
+      computerScore += 1;
       document.getElementById('computerScore').innerText = computerScore.toString();
     }
     return board[0];
@@ -126,7 +126,7 @@ function checkGameOver() {
       document.getElementById('playerScore').innerText = playerScore.toString();
     } else {
       alert('Computer wins!');
-      computerScore = 1;
+      computerScore += 1;
       document.getElementById('computerScore').innerText = computerScore.toString();
     }
     return board[2];
